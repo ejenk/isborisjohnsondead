@@ -1,0 +1,5 @@
+SELECT ?isdead WHERE {
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+  optional { wd:Q180589 wdt:P570 ?dod }.
+  BIND(if(bound(?dod), "yes", "no") as ?isdead)
+}
